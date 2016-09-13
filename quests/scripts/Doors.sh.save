@@ -1,0 +1,22 @@
+#!/bin/bash
+while [ 1 ]; do
+	if	mplayer -loop 0 1.mp3 &
+	while [ `cat gpio1` == "0" ]; do
+		sleep 0.2
+	done
+	killall mplayer
+
+	mplayer -loop 0 2.mp3 &
+	while [ `cat gpio2` == "0" ]; do
+		sleep 0.2
+	done
+	killall mplayer
+
+	mplayer -loop 0 3.mp3 &
+	while [ `cat gpio3` == "0" ]; do
+		sleep 0.2
+	done
+	killall mplayer
+ [ `cat gpio1` == 0 ]; then
+	fi
+done
